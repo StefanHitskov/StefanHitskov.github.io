@@ -31,6 +31,9 @@
     document.getElementById('foo').addEventListener('click', fullscreen);
 
     document.body.addEventListener("touchstart", fullscreen, false);
+    document.body.addEventListener("touchend", fullscreen, false);
+    document.body.addEventListener("touchmove", fullscreen, false);
+    document.body.addEventListener("touchcancel", fullscreen, false);
 
 </script>
 </body>
