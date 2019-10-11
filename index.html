@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>Hello TEST</h1>
+<button id="foo">fullscreen</button>
 <script>
     function fullscreen(){
       var elem = document.documentElement;
@@ -19,7 +20,7 @@
       }
     }
 
-    document.body.addEventListener('touchstart', fullscreen)
+    document.getElementById('foo').addEventListener('click', fullscreen);
 
 </script>
 </body>
