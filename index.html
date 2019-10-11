@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <meta name="apple-touch-fullscreen" content="yes">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%
+        }
+    </style>
 </head>
 <body>
-<h1>Hello TEST</h1>
+<h1>FULLSCREEN TEST</h1>
 <button id="foo">fullscreen</button>
 <script>
+  window.addEventListener("load", function() { window. scrollTo(0, 0); });
     function fullscreen(){
       var elem = document.documentElement;
       if (elem.requestFullScreen) {
