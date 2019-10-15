@@ -16,10 +16,10 @@
         #game-launch {
             display: block;
             border: 0;
-            width: 1px;
-            min-width: 100%;
-            height: 1px;
-            min-height: 100%;
+            /*width: 1px;*/
+            /*min-width: 100%;*/
+            /*height: 1px;*/
+            /*min-height: 100%;*/
         }
 
         .pop-spinner {
@@ -142,27 +142,25 @@
 
         //Fullscreen mode for android
         // if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
-        //   console.log('listener added');
-        //   window.addEventListener('touchstart', enableFullscreenMode, true);
+        //   var fullscreenActivator = document.createElement('div');
+        //   fullscreenActivator.classList.add('fullscreen-activator');
+        //   fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
+        //   document.body.appendChild(fullscreenActivator);
         // }
-        var fullscreenActivator = document.createElement('div');
-        fullscreenActivator.classList.add('fullscreen-activator');
-        fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
-        document.body.appendChild(fullscreenActivator);
-
-        function enableFullscreenMode(){
-
-          var elem = document.documentElement;
-          if (elem.requestFullScreen) {
-            elem.requestFullScreen();
-          } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-          } else if (elem.webkitRequestFullScreen) {
-            elem.webkitRequestFullScreen();
-          }
-          alert('FULLSCREEN');
-          document.body.removeChild(fullscreenActivator);
-        }
+        //
+        //
+        // function enableFullscreenMode(){
+        //
+        //   var elem = document.documentElement;
+        //   if (elem.requestFullScreen) {
+        //     elem.requestFullScreen();
+        //   } else if (elem.mozRequestFullScreen) {
+        //     elem.mozRequestFullScreen();
+        //   } else if (elem.webkitRequestFullScreen) {
+        //     elem.webkitRequestFullScreen();
+        //   }
+        //   document.body.removeChild(fullscreenActivator);
+        // }
 
       })
     </script>
