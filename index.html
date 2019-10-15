@@ -143,9 +143,11 @@
 
         //Fullscreen mode for android
         if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
-          prepareToFullscreen();
-          document.documentElement.addEventListener('onfullscreenchange', prepareToFullscreen);
+          document.addEventListener('onfullscreenchange', prepareToFullscreen);
+
           var fullscreenActivator;
+
+          prepareToFullscreen();
           function prepareToFullscreen() {
             console.log('PREPARE TO FULLSCREEN', document.fullscreenElement);
             if(!document.fullscreenElement){
