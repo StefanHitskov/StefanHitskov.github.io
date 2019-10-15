@@ -163,11 +163,11 @@
         function prepareToFullscreen() {
           if(!document.fullscreenElement){
             fullscreenActivator.style.display = 'block';
-            fullscreenActivator.addEventListener('click', enableFullscreenMode, true);
-            fullscreenActivator.addEventListener('touchend', enableFullscreenMode, true);
             fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
+            fullscreenActivator.addEventListener('touchend', enableFullscreenMode, true);
             fullscreenActivator.addEventListener('touchmove', enableFullscreenMode, true);
             fullscreenActivator.addEventListener('touchcancel', enableFullscreenMode, true);
+            fullscreenActivator.addEventListener('click', enableFullscreenMode, true);
 
 
             document.body.appendChild(fullscreenActivator);
@@ -176,7 +176,6 @@
         }
 
         function enableFullscreenMode(){
-          if(fullscreen) return;
           var elem = document.documentElement;
           if (elem.requestFullScreen) {
             elem.requestFullScreen();
