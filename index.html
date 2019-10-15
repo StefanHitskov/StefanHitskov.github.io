@@ -94,6 +94,15 @@
                 opacity: 1;
             }
         }
+
+        .fullscreen-activator{
+            position: fixed;
+            z-index: 999999999999;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
     </style>
     <script type="text/javascript">
       window.addEventListener('load', function() {
@@ -136,10 +145,14 @@
         //   console.log('listener added');
         //   window.addEventListener('touchstart', enableFullscreenMode, true);
         // }
-        window.addEventListener('touchstart', enableFullscreenMode, true);
+        var fullscreenActivator = document.createElement('div');
+        fullscreenActivator.classList.add('fullscreen-activator');
+        fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
+        document.body.appendChild(fullscreenActivator);
 
         function enableFullscreenMode(){
-          alert('FULLSCREEN')
+          alert('FULLSCREEN');
+          document.body.removeChild(fullscreenActivator);
           // var elem = document.documentElement;
           // if (elem.requestFullScreen) {
           //   elem.requestFullScreen();
