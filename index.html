@@ -147,6 +147,7 @@
           document.addEventListener('onfullscreenchange', prepareToFullscreen);
           var fullscreenActivator;
           function prepareToFullscreen() {
+            console.log('PREPARE TO FULLSCREEN', document.fullscreenElement);
             if(!document.fullscreenElement){
               fullscreenActivator = document.createElement('div');
               fullscreenActivator.classList.add('fullscreen-activator');
