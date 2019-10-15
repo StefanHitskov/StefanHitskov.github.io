@@ -158,8 +158,6 @@
         }
 
 
-        var fullscreen = false;
-
         function prepareToFullscreen() {
           if(!document.fullscreenElement){
             fullscreenActivator.style.display = 'block';
@@ -168,9 +166,9 @@
             fullscreenActivator.addEventListener('touchmove', enableFullscreenMode, true);
             fullscreenActivator.addEventListener('touchcancel', enableFullscreenMode, true);
             fullscreenActivator.addEventListener('click', enableFullscreenMode, true);
-
-
             document.body.appendChild(fullscreenActivator);
+          } else {
+            fullscreenActivator.style.display = 'none';
           }
 
         }
@@ -184,8 +182,6 @@
           } else if (elem.webkitRequestFullScreen) {
             elem.webkitRequestFullScreen();
           }
-          fullscreen = true;
-          fullscreenActivator.style.display = 'none';
         }
 
       })
