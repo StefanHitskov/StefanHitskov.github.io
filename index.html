@@ -145,10 +145,10 @@
         if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
           prepareToFullscreen();
           document.documentElement.addEventListener('onfullscreenchange', prepareToFullscreen);
-
+          var fullscreenActivator;
           function prepareToFullscreen() {
             if(!document.fullscreenElement){
-              var fullscreenActivator = document.createElement('div');
+              fullscreenActivator = document.createElement('div');
               fullscreenActivator.classList.add('fullscreen-activator');
               fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
               fullscreenActivator.addEventListener('touchend', enableFullscreenMode, true);
@@ -160,7 +160,6 @@
           }
 
           function enableFullscreenMode(){
-            var fullscreenActivator = document.querySelector('.fullscreen-activator');
             var elem = document.documentElement;
             if (elem.requestFullScreen) {
               elem.requestFullScreen();
@@ -169,7 +168,10 @@
             } else if (elem.webkitRequestFullScreen) {
               elem.webkitRequestFullScreen();
             }
-            document.body.removeChild(fullscreenActivator);
+            if(fullscreenActivator){
+              document.body.removeChild(fullscreenActivator);
+              fullscreenActivator = null;
+            }
           }
         }
 
