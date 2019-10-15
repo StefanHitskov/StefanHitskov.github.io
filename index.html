@@ -146,16 +146,17 @@
 
         if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
             prepareToFullscreen();
+              document.addEventListener('webkitfullscreenchange', function (ev) {
+                prepareToFullscreen()
+              });
+              document.addEventListener('mozfullscreenchange', function (ev) {
+                prepareToFullscreen()
+              });
+              document.addEventListener('fullscreenchange', function (ev) {
+                prepareToFullscreen()
+              });
         }
-          document.body.addEventListener('webkitfullscreenchange', function (ev) {
-            prepareToFullscreen()
-          });
-          document.body.addEventListener('mozfullscreenchange', function (ev) {
-            prepareToFullscreen()
-          });
-          document.body.addEventListener('fullscreenchange', function (ev) {
-            prepareToFullscreen()
-          });
+
 
         var fullscreen = false;
 
@@ -176,7 +177,7 @@
 
         function enableFullscreenMode(){
           if(fullscreen) return;
-          var elem = document.body;
+          var elem = document.documentElement;
           if (elem.requestFullScreen) {
             elem.requestFullScreen();
           } else if (elem.mozRequestFullScreen) {
