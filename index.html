@@ -144,7 +144,7 @@
         //Fullscreen mode for android
         if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
           prepareToFullscreen();
-          document.documentElement.addEventListener('onfullscreenchange', prepareToFullscreen);
+          document.addEventListener('onfullscreenchange', prepareToFullscreen);
           var fullscreenActivator;
           function prepareToFullscreen() {
             if(!document.fullscreenElement){
@@ -168,10 +168,7 @@
             } else if (elem.webkitRequestFullScreen) {
               elem.webkitRequestFullScreen();
             }
-            if(fullscreenActivator){
-              document.body.removeChild(fullscreenActivator);
-              fullscreenActivator = null;
-            }
+            document.body.removeChild(fullscreenActivator);
           }
         }
 
