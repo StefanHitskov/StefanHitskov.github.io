@@ -62,7 +62,7 @@
     let fullscreen = false;
 
     window.addEventListener("orientationchange", function() {
-      alert('orientation');
+      alert(`orientation, ${window.innerWidth > window.innerHeight}`);
       orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
     }, false);
 
