@@ -70,8 +70,19 @@
       window.removeEventListener('touchmove', preventScroll);
     }
 
+    function processFullscreen(){
+
+    }
+
     window.addEventListener("resize", function() {
-      if(window.innerWidth < window.innerHeight){
+      if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+        fullscreen = true;
+        document.body.style.height = '100%';
+        info.innerText = 'FULLSCREEN';
+        window.addEventListener('touchmove', preventScroll, {passive: false});
+      }
+      
+      if((window.innerWidth < window.innerHeight) && fullscreen){
         resetFullscreen();
       }
       orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
