@@ -7,7 +7,7 @@
     <title>TEST 1</title>
     <style>
         body {
-            height: 3000px;
+
         }
 
         #fixed{
@@ -15,18 +15,21 @@
             top: 0;
             left: 0;
         }
+
+        .dn{
+            display: none;
+        }
     </style>
 </head>
 <body>
 
 <div id="fixed">
-    <p id="viewport"></p>
-    <p id="screen"></p>
-    <p id="aheight"></p>
-
-    <p id="safari"></p>
+    <p class="dn" id="viewport"></p>
+    <p class="dn" id="screen"></p>
+    <p class="dn" id="aheight"></p>
+    <p class="dn" id="safari"></p>
     <p id="info"></p>
-    <p id="orientation"></p>
+    <p class="dn" id="orientation"></p>
 </div>
 
 <script>
@@ -47,56 +50,62 @@
 
     // ua.innerText = userAgent;
 
-    safari.innerText =  `is safari: ${(/(iPad|iPhone|iPod)/gi).test(userAgent) &&
+    const isSafari = (/(iPad|iPhone|iPod)/gi).test(userAgent) &&
       !(/CriOS/).test(userAgent) &&
       !(/FxiOS/).test(userAgent) &&
       !(/OPiOS/).test(userAgent) &&
-      !(/mercury/).test(userAgent)}`;
+      !(/mercury/).test(userAgent);
+
+    safari.innerText =  `is safari: ${isSafari}`;
 
 
-    function preventScroll (ev){
-      ev.preventDefault();
-      ev.stopImmediatePropagation();
-    }
-
-    let fullscreen = false;
-
-
-    function resetFullscreen (){
-      fullscreen = false;
-      document.body.style.height = `${window.innerHeight * 2}px`;
-      window.scroll({top : 0});
-      info.innerText = '';
-      window.removeEventListener('touchmove', preventScroll);
-    }
-    
-    function processFullscreen(){
-      fullscreen = true;
-      document.body.style.height = '100%';
-      info.innerText = 'FULLSCREEN';
-      window.addEventListener('touchmove', preventScroll, {passive: false});
-    }
-
-    window.addEventListener("resize", function() {
-      if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-        processFullscreen()
-      } else if((window.innerWidth < window.innerHeight) && fullscreen){
-        resetFullscreen();
+    if(isSafari){
+      function preventScroll (ev){
+        ev.preventDefault();
+        ev.stopImmediatePropagation();
       }
-      orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-    }, false);
+
+      let fullscreen = false;
 
 
-    window.addEventListener('scroll', () => {
-      if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-        processFullscreen()
-      } else if(fullscreen) {
-        resetFullscreen();
+      function resetFullscreen (){
+        fullscreen = false;
+        document.body.style.height = `${window.innerHeight * 2}px`;
+        window.scroll({top : 0});
+        info.innerText = 'SWIPE UP';
+        window.removeEventListener('touchmove', preventScroll);
       }
-      screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-      viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
-      aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
-    });
+
+      function processFullscreen(){
+        fullscreen = true;
+        document.body.style.height = '100%';
+        info.innerText = 'FULLSCREEN';
+        window.addEventListener('touchmove', preventScroll, {passive: false});
+      }
+
+      window.addEventListener("resize", function() {
+        if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+          processFullscreen()
+        } else if((window.innerWidth < window.innerHeight) && fullscreen){
+          resetFullscreen();
+        }
+        orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
+      }, false);
+
+
+      window.addEventListener('scroll', () => {
+        if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+          processFullscreen()
+        } else if(fullscreen) {
+          resetFullscreen();
+        }
+        screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+        viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+        aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
+      });
+    }
+
+
 </script>
 
 </body>
