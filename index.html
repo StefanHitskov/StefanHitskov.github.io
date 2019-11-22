@@ -28,8 +28,8 @@
     const viewport = document.getElementById('viewport');
     const screen = document.getElementById('screen');
 
-    screen.innerHTML = `${window.screen.width} X ${window.screen.height}`;
-    viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
+    screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
+    viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     window.addEventListener('scroll', () => {
       if(window.innerHeight == window.screen.height){
         alert('fullscreen');
