@@ -33,7 +33,7 @@
     screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
     viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     
-    window.addEventListener('touchmove', evt => {
+    document.body.addEventListener('touchend', evt => {
       evt.preventDefault();
     });
     
