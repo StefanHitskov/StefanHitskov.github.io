@@ -65,7 +65,7 @@
         document.body.style.height = '100%';
         info.innerText = 'FULLSCREEN';
         window.addEventListener('touchmove', preventScroll, {passive: false});
-      } else {
+      } else if(fullscreen) {
         fullscreen = false;
         document.body.style.height = `${window.innerHeight * 2}px`;
         window.scroll({top : 0});
