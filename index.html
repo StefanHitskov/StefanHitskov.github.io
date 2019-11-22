@@ -31,15 +31,15 @@
     screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
     viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     window.addEventListener('scroll', () => {
-      if(window.innerHeight == window.screen.height){
+      if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width){
         alert('fullscreen');
         window.addEventListener('touchmove', evt => {
           evt.preventDefault();
         });
         document.body.style.height = '100%';
       }
-      screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
       viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
+      screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
     });
 </script>
 
