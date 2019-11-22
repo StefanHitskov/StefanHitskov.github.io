@@ -32,6 +32,7 @@
     viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
     window.addEventListener('scroll', () => {
       if(window.innerHeight == window.screen.height){
+          alert('fullscreen');
         window.addEventListener('touchmove', evt => {
           evt.preventDefault();
         });
