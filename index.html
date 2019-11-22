@@ -61,11 +61,17 @@
 
     let fullscreen = false;
 
-    window.addEventListener("orientationchange", function() {
-      setTimeout(() => {
-        orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-      }, 0);
+    window.addEventListener("orientationchange", function(evt) {
+      orientation.innerText = window.screen.orientation;
     }, false);
+
+    function resetFullscreen (){
+      fullscreen = false;
+      document.body.style.height = `${window.innerHeight * 2}px`;
+      window.scroll({top : 0});
+      info.innerText = '';
+      window.removeEventListener('touchmove', preventScroll);
+    }
 
 
     window.addEventListener('scroll', () => {
@@ -75,11 +81,7 @@
         info.innerText = 'FULLSCREEN';
         window.addEventListener('touchmove', preventScroll, {passive: false});
       } else if(fullscreen) {
-        fullscreen = false;
-        document.body.style.height = `${window.innerHeight * 2}px`;
-        window.scroll({top : 0});
-        info.innerText = '';
-        window.removeEventListener('touchmove', preventScroll);
+        resetFullscreen();
       }
       screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
       viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
