@@ -4,223 +4,29 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="mobile-web-app-capable" content="yes">
+    <title>TEST 1</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
-
-        #game-launch {
-            display: block;
-            border: 0;
-            /*width: 1px;*/
-            /*min-width: 100%;*/
-            /*height: 1px;*/
-            /*min-height: 100%;*/
-        }
-
-        .pop-spinner {
-            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAACP3YV9AAANm0lEQVR4Xu2df3Bc1XXHP+ftypJtTB2Ca/EjEHt3XTumwy+nSZsakqEhyYQkBGJn+DF1pJXs0HjopNBOMZlgoA7JdEKmSciM0e7KGJK0KkMGEkIa6FBCSn9gCODiYO+uTMYJ2JhfQSBb0u47nbvyWrItW7vv3l1Lu+/+c3VH75x7zvm+u/fHOfc8YTqX3p3noJwJhXn4zEO8k0HnoeZvGf0bmQcKyF7QvcCrwN5SW/1X8czf7EWiv6FjwTPT1RwybQTfvHs2QwPvJyJ/gs8FeCxHOdGx/G8Bj6P8AtX/pXXOk/xl+zuO+6gJu6kL5MaXZhHd9wnEfz8qy5AScDNqYoWjMx0eBVa3IN6TFGY+xJpTB+ssQ0XdTT0gM9nz8FmJsBJkQUVa1Osh1Z149AF9dCaerle3lfQzNYDs0whv96/E9z+PyGcqEfy4P6Pcjyf/wgkL+1gpxeMtz/EF8s7sUqLeStQ3o2/x8TZGoP5FXsD3+4jSxxcSzwfi4YDo+AC5ccssWuauQ7nRgQ5Th4WygeKbX2PNsrrPo/UHMp37LLAOWDZ1EHApiWwB/RrJ+I9ccp2MV/2AzOTeg8+NCGsmE6oh/i9sBDbQGd9VD33qA2Qq24WI+Rl9bz2UmkJ9vIjoBjoTqVrLVFsge/N/jPJVVD9Xa0WmNn+5F49b6IhtrZWctQOyt/9T+P4dwHtqJfw047sLz/sSHQt/XAu5awNkJnctyj/VQuBpz1P4azrj33ath3sgM/nbUf2ya0Ebip/qt+hK/I1LndwCmc7dB5jtRVgms4DIj+iMXTbZY5X+3x2QqeyvEDmn0o7D5wDVZ+hKnOvCFm6ATOfeAOa6EKj5eMibJGPvstXbHsh09ncg7WBYlRy49a2Fl0GeRnU3yh5Ed4O3m4jupsAehoZ2l4zU2tqOFNsRrx1f2vGYj087nrSjeh5wqq0xA9MrL9MVt+rfDsh09n6QTwRWIDChPA36IKIPOnMn9eTOx5NLEP0UyvmBRQtO+CDJ+CVByYMDmcmbjf4NQTuunk4fQeRh0EfoTGyrnr4Kik3ZpRT5GMjFYOq6lVtJxr8apLdgQKZzXwD5LvggHqgPeNSkjdyNaI+zkVetldJ5E51wDaqd1ZIGfH41yXhPtbTVA1k6sSneU/u5kH8F0iQT/1WtUjV5Pp3/c9S/BpEra8J/PFNfLqc7ZrZyFZfqgEzlPoQnD5TWNOVSXtu4aqM/QTRDZ+KxirWo54Ob8hdR5BrQy2vareiHq7FB5UD27lyMX9xcQw/GVnz/63QverimBnLFPJX/JKK3AGbF674IeXwupSv+f5UwrxzITK4H5RJEzEYWx/V/QOE6kotfqkToKfNMT/Z0IpJCa7Ug0ntJJlZUom9lQGbyV6D6j6V9YhnI8n7Rto3cRzJ+bSXCTtlnUtm7Ebm6JvKJdlfiz5wcyPQLp0K0D8F4+A8uTsuLVKtaSZGM31oTA9SbaSp7OyI1cBaIcU5fMFmkweRApnL/ADq2UnO1uFFvLd2xn9bb3jXtL5VdgYiJe3VblI10xb94LKbHBrKn/6NE9A7nc6J4F9CxYPTorNGKmTc9qUWczmXHCug6OpC9O9soFu7B85aWNvzljb9tXfA+yJrY7xsNv0P0Se06CRl6za2OsoXCGxceLdTy6EAaL7/Paqs58PA5VeSKWsatuDWcJbfMjg+g3n9bcjmU3MTNdsW/MhHPiYHclI1RlPucOjPw19G16EGnik11ZunsVSD3OBUzomdNFNE+MZDp/BdBVx+cG8uIlveP1bZHJ2sT59l8JZ1dD3KTM8VFbqEzdgS/I4Hs64swcO4/I96ZThY58LOgJ/rOlD/ejNJZczZ9lRMxzF2TExaedfjFoSOBTGcvRuTmUqflOa4sQdVt3UYbX+bqhLlA2rzFLH684Z+i+gEnRjAH952xH47nNQGQ+dtQXe7E0V/k71gdf8KJ8NOdyejZ7E+cqKF6P12JS48O5J2/XkRkRs/YULQ4yvEij9GxMJCT1ImyU5FJOn+vM6+J6PnjfbSHjsh0rhsw56r2h+Ie1x83Z/BUBNHIlMpfhOgjTsQT/Qadib8v8xoD8tvZVmZLD2ICqSyL7z9KV+I2Sy6NSZ7Jfx8dd+QZWEvZSWHmWeWcBmNA9mxfjkTWuZkb9XpWH7/bu4FtUw9CE2mAPu6kK/FW0LnwXsNrDMh0NgnyWesQDk8epiMW3vs4FlKZfNpNDJB+k2Ti+sOAzN8G/vusgVS5jq54zskb16hMTEAX+qQD9X5JMr58DMjbn5jJ3Pl3oRq1Yy7PkYytt+PRJNTp/COgF9lpqyNQfDfJxQOjP6137jiHSOlGsV3x9Yd0L6oq+suuw2lMnc6uA9lgrYHox+lM/NsokCWHqHeZdci/P7KO7sU7rYVrBgYmMZTKU9aqHjh7LQN5A+IttToIEH47fl9jLWAzMEhltyJylqWq/04y/hejQKZzxjPRVvo7aCiHyM8OP/+zFLDxydP5b4LaXnh9m2R8jnBX/gwKvv0CxfNuoyOWbXzrO9TQBHwLv7TmqHqeYHKeFgtfwhPwlUC16lskE9dZC9SMDNL53aDzrVQXvVTYlPsQRa622j8qW+mKfc9KmGYlzuR/jGrg63Qls6l2C+n+i0E/bRWbA0/QEftBs2JhpfdoBH+XFQ/VdUJv7lJ8PmLHyP9508XjWBlsHHGm/1bUnzCgqvIu5HahN38lRX8Znge+T6BauY9kzH7SrlzyxnkylVuL8B1Lhe42P61JtLD44F2AMqDl39pK2iKbmybM0dLiR5Bnsp9DxdwFDV6Up4RM/1pUT7ObI4c30rHkxeCSNDGlC7eW8JqQyV2PPy61yoEb5AdNW0l7cORbrF3iOLK6ScBN5eIItvvvggHyK/jaEmhuLM+pJ+zfwMqlJiN/WKq1wB3Pn0Bb60C1ZIc/L2SyN+BjC+TXQyAtoEjnxl/mD8TIjMi1FPkDIoDJlR+kbm35HledabJfhSWIBdI54zGySUr8ogFyFUU9xWqx43MP3YnfBtEhpDFOC9tIdP2+sCl/Ob4uKG0/ynNeOcS80nZBH2B1bEcISkAL2AYvq1wipHIfB11itdgpFB9l9aJp+4GwgOZ3S5bO3Q98OgDTB0jGPyP09i9H/dFUk+U5ssyt0rbqk1MmsVEAS0wJkru2n0bBe7y6z0jpTqL+clb90e8Ek0wP/aDVHIlsIxl/dEoYZDoLMZrLyDgfKsnh+iu8yJV0LHjBqCz07FiCx4XBlqvlIau/IRl/aDrbcOrIrma624DIWmDOBHINoPpduuI3ghzctgip/jPxih8tAekXwRu3/6i07esgXaEby+nLYD78NpC/GGQJvn8invcW6K+ZE/v5RB9VE0bv7tl/IS7S+gCrTg+P6ZyiWTmz0eCrnh1X4HktdhdbvWdJLny28q7DJ11a4ACQ2Q/jeadZhUMir4fzpEtoquNVHpFLEO/s4Gd0BxY9RXmo4XPoVGffuj09CmQmOw8iF1r3Whh6jtVLwhMea0NWz2AUyPWPRjnjvZ9Ei8b7GLxo4RW6Fv9ncAYhZVALjN2PzOT+DNWTiUSgOM4NUm3bi/6CjgVvBhUopAtmgTEge7cvpigxu4OBIrREd7Fq4XPBxAmpglpgDMgf9M9n0D/3oD+yzLF8PlBNe1/L//BXoX8yKChB6MaANBmv3jj7T/FkZhBGh9CIZ74sU1Eubuu+QgYlCxyanmVjNkZbyxkUChCNYlW3tTwTRg3U7y07FEgTCNQ68zwoAOYWukXtyas1/2JO/ew05Xs6MoWZ8YaId5ItjiX6lpZt4aiszztwJJAbt5+M58WddO8X3uFd/vYwws6JNY/JZIJ8rcYfll9KRGYyUjDbCazq1ujvWRXG89QayokT727cdgpts9oZGTE/j1jXg/ve4JrwSkEtwZwYSJOY3tNFmNjxGeCk9oZfnXZf2qml5R3zPnpy+s25P2S/znMGpHkhouxq+iS8jgEsszs6kOvXe8z//Bm0tbUxPAwzZuCkXrQox0fE7GvC4tACRwfSdGL2lbPaTmFoyHyjGGf17Kf6WbnSnMyHxZEFjg2k6cRsR2a2jkZzDZmPTo/r2ab95shLXJswHMLiwAKTA1mK5to1n+hIlP0H0iq5ql95+zX+9ux3HOjR9CwmB9KYaPOzs9GT5sIgMAundcQbCBdA9u9hZUCafnp3zmVwsI1Zs2BwEKf1sL+Pl+8eYP16kw0/LAEsUDmQJhzk9PiJePuNh9J9kegIswcHw+O8YKatHMjSwmdLC5GZczCfYzkRalK3Mkx03xBrlo0EU6k5qaoD0tioT2cwnGuDk4DXqVk9o20ETh+eKDy+OaE6ttbVA1kC8/kZ7H93C3v2wHyTD28PMJ+atFtnFXg9PsJ6CefPY2AZDEjDcIu2sPXF2syXEwk8e9Bn2ys+POaHi6IjDRQcSMPLLIBOmTPGwyR2Pn9cJ7VqvzygvG+vsmKFj4xdLWvmn1w7II3lVIWbbxYwnzQ0H7mrc33TTWOpTcrZn6WklnXKk+n0YtgDOZ20bWBZQyAbBNwQyBDIBrFAg6gRjsgQyAaxQIOoEY7IEMgGsUCDqBGOyBDIBrFAg6gRjsgQyAaxQIOoEY7IEMgGsUCDqBGOyBDIBrFAg6gRjsgGAfL/AUB7f3BVEkezAAAAAElFTkSuQmCC");
-            animation: spin 1s linear infinite;
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            margin-bottom: 20px;
-        }
-
-        .pop-notification {
-            font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, sans-serif;
-            font-style: italic;
-            font-size: 30px;
-
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-
-            color: #fff;
-            background-color: #121212;
-            z-index: 10;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pop-notification.show {
-            display: flex;
-
-            -webkit-animation: notificationShow .5s;
-            -moz-animation: notificationShow .5s;
-        }
-
-        .pop-notification__content {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            padding: 0 20px;
-        }
-
-        @-webkit-keyframes spin {
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        @keyframes spin {
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform:rotate(360deg);
-            }
-        }
-
-        @-webkit-keyframes notificationShow {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        @-moz-keyframes notificationShow {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .fullscreen-activator{
-            position: fixed;
-            z-index: 999999999999;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
+        body {
+            height: 3000px;
         }
     </style>
-    <script type="text/javascript">
-      window.addEventListener('load', function() {
-        // TODO: localize text according to the user
-        var connectionLostMessage = "Cannot connect to the server. Please reload the page and try again."
-        var reconnectionMessage = "The connection has been lost. Attempting to reconnect to your session..."
-        // TODO: use dynamic WebSocket values
-        window.websocketOptions = {
-          websocketDebugMode: false,
-          reconnectInterval: 1000,
-          maxReconnectInterval: 20000,
-          reconnectDelay: 1.5,
-          timeoutInterval: 2000,
-          maxReconnectAttempts: 5,
-          pingInterval: 20000,
-          timeoutAfterSendMessage: 3000,
-          debug: true
-        }
-
-        document.getElementById("ws-reconnection-text").innerText = reconnectionMessage
-        document.getElementById("ws-connection-lost-text").innerText = connectionLostMessage
-
-        var config = JSON.parse('{"rgs":"131","brand":"playtech800051","player":"greenCHF","token":"76e4905d-e68f-4621-83b7-ecd041742648","window":"0c2ac886-f1a0-4e80-a964-de29cf880a99","rel":"Regression","ver":{"mock":"19.10.0.1","uu":"19.10.0.9","tpi":"19.10.0.5","pos":"19.10.0.1","push":"19.10.0.2","ne":"19.10.0.1","gt":"19.10.0.4"}}')
-        var wsProtocol = location.protocol === "http:" ? "ws://" : "wss://"
-        window.rgsGameCode = '353'
-        window.backUrl = 'http%3A%2F%2Fplaytech.com'
-
-        window.basePath = "static/uu-19.10.0.9/"
-        window.WebSocketURL = Object.keys(config).reduce(function (acc, item, i) {
-          var queryParam = item + '=' + config[item]
-          if (item === "ver") queryParam = item + '=' + encodeURIComponent(JSON.stringify(config[item]))
-          if (i !== 0) queryParam = '&' + queryParam
-          return (acc += queryParam)
-        }, wsProtocol + location.host + '/ws' + '?');
-
-
-        //Fullscreen mode for android
-        var fullscreenActivator = document.createElement('div');
-        fullscreenActivator.classList.add('fullscreen-activator');
-
-        if(navigator.userAgent.toLowerCase().indexOf('android') !== -1){
-            prepareToFullscreen();
-              document.addEventListener('webkitfullscreenchange', function (ev) {
-                prepareToFullscreen()
-              });
-              document.addEventListener('mozfullscreenchange', function (ev) {
-                prepareToFullscreen()
-              });
-              document.addEventListener('fullscreenchange', function (ev) {
-                prepareToFullscreen()
-              });
-        }
-
-
-        function prepareToFullscreen() {
-          if(!document.fullscreenElement){
-            fullscreenActivator.style.display = 'block';
-            fullscreenActivator.addEventListener('touchstart', enableFullscreenMode, true);
-            fullscreenActivator.addEventListener('touchend', enableFullscreenMode, true);
-            fullscreenActivator.addEventListener('touchmove', enableFullscreenMode, true);
-            fullscreenActivator.addEventListener('touchcancel', enableFullscreenMode, true);
-            fullscreenActivator.addEventListener('click', enableFullscreenMode, true);
-            document.body.appendChild(fullscreenActivator);
-          } else {
-            fullscreenActivator.style.display = 'none';
-          }
-
-        }
-
-        function enableFullscreenMode(){
-          var elem = document.documentElement;
-          if (elem.requestFullScreen) {
-            elem.requestFullScreen();
-          } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-          } else if (elem.webkitRequestFullScreen) {
-            elem.webkitRequestFullScreen();
-          }
-        }
-
-      })
-    </script>
-    <script type="text/javascript" src="static/uu-19.10.0.9/playtech-in-sight.js"></script><style type="text/css">
-    .monitorMessageContent{
-        display: none;
-    }</style><style type="text/css">.insight-iframe{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    overflow: none;
-    width: 0;
-    height: 0;
-    display: none;
-    position: fixed;
-}</style>
-    <script type="text/javascript" src="static/uu-19.10.0.9/pop-client.js"></script>
 </head>
 <body>
-<div id="pluginContainer"></div>
-<div id="notification-reconnect" class="pop-notification">
-    <div class="pop-notification__content">
-        <div class="pop-spinner"></div>
-        <span id="ws-reconnection-text">The connection has been lost. Attempting to reconnect to your session...</span>
-    </div>
-</div>
-<div id="notification-lost-connection" class="pop-notification">
-    <div class="pop-notification__content">
-        <span id="ws-connection-lost-text">Cannot connect to the server. Please reload the page and try again.</span>
-    </div>
-</div>
 
-<iframe id="game-launch" src="https://nrgs-b2b-cstg.greentube.com/Nrgs/B2B/Web/SwissCasinoSUI/V5/Fun/Games/634/Sessions/4C52F830-FA6C-4552-AE49-4CCD2BA045E4/Show/html5?ClientType=mobile-device&FreeSpins=False" width="100%" height="100%"></iframe>
+<p id="viewport"></p>
+<p id="screen"></p>
 
+<script>
+    const viewport = document.getElementById('viewport');
+    const screen = document.getElementById('screen');
 
+    screen.innerHTML = `${window.screen.width} X ${window.screen.height}`;
+    viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
+    window.addEventListener('scroll', () => {
+      viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
+    });
+</script>
 
+</body>
 
-</body></html>
+</html>
