@@ -36,8 +36,8 @@
     const ua = document.getElementById('ua');
 
     screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-    viewport.innerHTML = `viewport: w ${window.innerWidth} : h${window.innerHeight}`;
-    aHeight.innerHTML = `availHeight  ${window.screen.availHeight }`;
+    viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+    aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
 
     ua.innerText = navigator.userAgent;
 
@@ -58,8 +58,8 @@
         window.removeEventListener('touchmove', preventScroll);
       }
       screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-      viewport.innerHTML = `viewport: w ${window.innerWidth} : h${window.innerHeight}`;
-      aHeight.innerHTML = `availHeight  ${window.screen.availHeight }`;
+      viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+      aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
     });
 </script>
 
