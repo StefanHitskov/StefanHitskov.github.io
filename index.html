@@ -69,20 +69,18 @@
       info.innerText = '';
       window.removeEventListener('touchmove', preventScroll);
     }
-
+    
     function processFullscreen(){
-
+      fullscreen = true;
+      document.body.style.height = '100%';
+      info.innerText = 'FULLSCREEN';
+      window.addEventListener('touchmove', preventScroll, {passive: false});
     }
 
     window.addEventListener("resize", function() {
       if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-        fullscreen = true;
-        document.body.style.height = '100%';
-        info.innerText = 'FULLSCREEN';
-        window.addEventListener('touchmove', preventScroll, {passive: false});
-      }
-      
-      if((window.innerWidth < window.innerHeight) && fullscreen){
+        processFullscreen()
+      } else if((window.innerWidth < window.innerHeight) && fullscreen){
         resetFullscreen();
       }
       orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
@@ -91,10 +89,7 @@
 
     window.addEventListener('scroll', () => {
       if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-        fullscreen = true;
-        document.body.style.height = '100%';
-        info.innerText = 'FULLSCREEN';
-        window.addEventListener('touchmove', preventScroll, {passive: false});
+        processFullscreen()
       } else if(fullscreen) {
         resetFullscreen();
       }
