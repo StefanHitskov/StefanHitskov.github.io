@@ -62,7 +62,7 @@
     if(isSafari){
 
       document.body.style.height = `${window.innerHeight * 2}px`;
-      
+
       function preventScroll (ev){
         ev.preventDefault();
         ev.stopImmediatePropagation();
@@ -87,11 +87,14 @@
       }
 
       window.addEventListener("resize", function() {
-        if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-          processFullscreen()
-        } else if((window.innerWidth < window.innerHeight) && fullscreen){
-          resetFullscreen();
-        }
+        setTimeout(() => {
+          if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+            processFullscreen()
+          } else if((window.innerWidth < window.innerHeight) && fullscreen){
+            resetFullscreen();
+          }
+        }, 0);
+
         orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
       }, false);
 
