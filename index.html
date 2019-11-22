@@ -34,12 +34,21 @@
     const aHeight = document.getElementById('aheight');
     const info = document.getElementById('info');
     const ua = document.getElementById('ua');
+    const safari = document.getElementById('safari');
 
     screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
     viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
     aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
 
-    ua.innerText = navigator.userAgent;
+    const userAgent = navigator.userAgent;
+
+    ua.innerText = userAgent;
+
+    ua.innerText =  (/(iPad|iPhone|iPod)/gi).test(userAgent) &&
+      !(/CriOS/).test(userAgent) &&
+      !(/FxiOS/).test(userAgent) &&
+      !(/OPiOS/).test(userAgent) &&
+      !(/mercury/).test(userAgent);
 
 
     function preventScroll (ev){
