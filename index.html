@@ -88,17 +88,19 @@
         window.addEventListener('touchmove', preventScroll, {passive: false});
       }
 
-      window.addEventListener("resize", function() {
-        setTimeout(() => {
-          if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-            processFullscreen()
-          } else if((window.innerWidth < window.innerHeight) && fullscreen){
-            resetFullscreen();
-          }
-        }, 0);
 
-        orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-      }, false);
+
+      // window.addEventListener("resize", function() {
+      //   setTimeout(() => {
+      //     if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+      //       processFullscreen()
+      //     } else if((window.innerWidth < window.innerHeight) && fullscreen){
+      //       resetFullscreen();
+      //     }
+      //   }, 0);
+      //
+      //   orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
+      // }, false);
 
 
       window.addEventListener('scroll', () => {
