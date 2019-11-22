@@ -72,6 +72,7 @@
 
 
       function resetFullscreen (){
+        alert('RESET');
         fullscreen = false;
         document.body.style.height = `${window.innerHeight * 2}px`;
         window.scroll({top : 0});
@@ -80,6 +81,7 @@
       }
 
       function processFullscreen(){
+        alert('PROCESS');
         fullscreen = true;
         document.body.style.height = '100%';
         info.innerText = 'FULLSCREEN';
