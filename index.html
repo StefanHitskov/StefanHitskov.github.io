@@ -22,6 +22,8 @@
 <div id="fixed">
     <p id="viewport"></p>
     <p id="screen"></p>
+    <p id="aheight"></p>
+
     <p id="info"></p>
     <p id="ua"></p>
 </div>
@@ -29,11 +31,13 @@
 <script>
     const viewport = document.getElementById('viewport');
     const screen = document.getElementById('screen');
+    const aHeight = document.getElementById('aheight');
     const info = document.getElementById('info');
     const ua = document.getElementById('ua');
 
-    screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
-    viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
+    screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+    viewport.innerHTML = `viewport: w ${window.innerWidth} : h${window.innerHeight}`;
+    aHeight.innerHTML = `availHeight  ${window.availHeight }`;
 
     ua.innerText = navigator.userAgent;
 
@@ -53,8 +57,9 @@
         info.innerText = '';
         window.removeEventListener('touchmove', preventScroll);
       }
-      viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
-      screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
+      screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+      viewport.innerHTML = `viewport: w ${window.innerWidth} : h${window.innerHeight}`;
+      aHeight.innerHTML = `availHeight  ${window.availHeight }`;
     });
 </script>
 
