@@ -61,10 +61,10 @@
 
     let fullscreen = false;
 
-    window.addEventListener("orientationchange", function(evt) {
-      alert(`orientation ${window.screen.orientation.angle}`);
+    window.addEventListener("resize", function() {
       orientation.innerText = window.screen.orientation.angle;
     }, false);
+    
 
     function resetFullscreen (){
       fullscreen = false;
