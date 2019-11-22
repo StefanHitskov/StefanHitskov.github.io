@@ -22,6 +22,7 @@
 <div id="fixed">
     <p id="viewport"></p>
     <p id="screen"></p>
+    <p id="info"></p>
 </div>
 
 <script>
@@ -32,11 +33,12 @@
     viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     window.addEventListener('scroll', () => {
       if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width){
-        alert('fullscreen');
+        
         window.addEventListener('touchmove', evt => {
           evt.preventDefault();
         });
         document.body.style.height = '100%';
+        document.getElementById('info').innerText = 'FULLSCREEN';
       }
       viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
       screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
