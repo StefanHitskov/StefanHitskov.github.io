@@ -63,7 +63,8 @@
         info.innerText = 'FULLSCREEN';
         window.addEventListener('touchmove', preventScroll, {passive: false});
       } else {
-        window.scroll({top : 0})
+        document.body.style.height = `${window.innerHeight * 2}px`;
+        window.scroll({top : 0});
         info.innerText = '';
         window.removeEventListener('touchmove', preventScroll);
       }
