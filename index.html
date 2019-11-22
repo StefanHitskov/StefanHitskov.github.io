@@ -61,10 +61,6 @@
 
     let fullscreen = false;
 
-    window.addEventListener("resize", function() {
-      orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-    }, false);
-
 
     function resetFullscreen (){
       fullscreen = false;
@@ -73,6 +69,13 @@
       info.innerText = '';
       window.removeEventListener('touchmove', preventScroll);
     }
+
+    window.addEventListener("resize", function() {
+      if(window.innerWidth < window.innerHeight){
+        resetFullscreen();
+      }
+      orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
+    }, false);
 
 
     window.addEventListener('scroll', () => {
