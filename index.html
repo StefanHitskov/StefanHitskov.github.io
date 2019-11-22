@@ -33,9 +33,10 @@
     screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
     viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     
-    document.body.addEventListener('touchend', evt => {
+    document.ontouchmove = evt => {
       evt.preventDefault();
-    });
+    };
+
     
     
     window.addEventListener('scroll', () => {
