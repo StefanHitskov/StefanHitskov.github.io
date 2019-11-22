@@ -7,7 +7,7 @@
     <title>TEST 1</title>
     <style>
         body {
-            /*height: 3000px;*/
+            height: 3000px;
         }
 
         #fixed{
@@ -31,6 +31,12 @@
     screen.innerHTML = `${window.screen.width} X ${window.screen.height}`;
     viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
     window.addEventListener('scroll', () => {
+      if(window.innerHeight == window.screen.height){
+        window.addEventListener('touchmove', evt => {
+          evt.preventDefault();
+        });
+        document.body.style.height = '100%';
+      }
       viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
     });
 </script>
