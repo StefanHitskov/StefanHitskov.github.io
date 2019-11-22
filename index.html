@@ -32,13 +32,14 @@
     viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
     window.addEventListener('scroll', () => {
       if(window.innerHeight == window.screen.height){
-          alert('fullscreen');
+        alert('fullscreen');
         window.addEventListener('touchmove', evt => {
           evt.preventDefault();
         });
         document.body.style.height = '100%';
       }
-      viewport.innerHTML = `${window.innerWidth} X ${window.innerHeight}`;
+      screen.innerHTML = `w ${window.screen.width} : h ${window.screen.height}`;
+      viewport.innerHTML = `w ${window.innerWidth} : h${window.innerHeight}`;
     });
 </script>
 
