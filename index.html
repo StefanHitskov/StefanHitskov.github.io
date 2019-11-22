@@ -42,7 +42,7 @@
     viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
     aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
     orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-    
+
     const userAgent = navigator.userAgent;
 
     // ua.innerText = userAgent;
@@ -62,6 +62,7 @@
     let fullscreen = false;
 
     window.addEventListener("orientationchange", function() {
+      alert('orientation');
       orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
     }, false);
 
