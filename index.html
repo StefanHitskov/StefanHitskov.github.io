@@ -33,120 +33,124 @@
 </div>
 
 <script>
-    const viewport = document.getElementById('viewport');
-    const screen = document.getElementById('screen');
-    const aHeight = document.getElementById('aheight');
-    const info = document.getElementById('info');
-    // const ua = document.getElementById('ua');
-    const safari = document.getElementById('safari');
-    const orientation = document.getElementById('orientation');
+    
+    window.addEventListener('load', () => {
+      const viewport = document.getElementById('viewport');
+      const screen = document.getElementById('screen');
+      const aHeight = document.getElementById('aheight');
+      const info = document.getElementById('info');
+      // const ua = document.getElementById('ua');
+      const safari = document.getElementById('safari');
+      const orientation = document.getElementById('orientation');
 
-    screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-    viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
-    aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
-    orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
+      screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+      viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+      aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
+      orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
 
-    const userAgent = navigator.userAgent;
-    const PORTRAIT = 0;
-    const LANDSCAPE = 1;
+      const userAgent = navigator.userAgent;
+      const PORTRAIT = 0;
+      const LANDSCAPE = 1;
 
-    // ua.innerText = userAgent;
+      // ua.innerText = userAgent;
 
-    const isSafari = (/(iPad|iPhone|iPod)/gi).test(userAgent) &&
-      !(/CriOS/).test(userAgent) &&
-      !(/FxiOS/).test(userAgent) &&
-      !(/OPiOS/).test(userAgent) &&
-      !(/mercury/).test(userAgent);
+      const isSafari = (/(iPad|iPhone|iPod)/gi).test(userAgent) &&
+        !(/CriOS/).test(userAgent) &&
+        !(/FxiOS/).test(userAgent) &&
+        !(/OPiOS/).test(userAgent) &&
+        !(/mercury/).test(userAgent);
 
-    safari.innerText =  `is safari: ${isSafari}`;
-
-
-    if(isSafari){
-
-      document.body.style.height = `${window.innerHeight * 2}px`;
-
-      function preventScroll (ev){
-        ev.preventDefault();
-        ev.stopImmediatePropagation();
-      }
-
-      function fullscreenHandler(){
-        if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-          processFullscreen()
-        } else if(fullscreen) {
-          resetFullscreen();
-        }
-        screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-        viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
-        aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
-      }
-
-      let fullscreen = false;
+      safari.innerText =  `is safari: ${isSafari}`;
 
 
-      function resetFullscreen (){
-        alert('RESET FULLSCREEN');
-        document.body.style.height = '100%';
-        info.innerText = 'SWIPE UP';
-        // alert('RESET');
-        // window.removeEventListener('scroll', fullscreenHandler);
-        // fullscreen = false;
-        // document.body.style.height = `${window.innerHeight * 2}px`;
-        // window.scroll({top : 0});
-        // info.innerText = 'SWIPE UP';
-        // window.removeEventListener('touchmove', preventScroll);
-      }
+      if(true){
 
-      function processFullscreen(){
-        // alert('PROCESS');
-        fullscreen = true;
-        document.body.style.height = '100%';
-        info.innerText = 'FULLSCREEN';
-        window.addEventListener('touchmove', preventScroll, {passive: false});
-      }
-
-
-      function initFullscreenActivator(){
-        // alert('PREPARE FULLSCREEN');
         document.body.style.height = `${window.innerHeight * 2}px`;
-        window.scroll({top : 0});
-        info.innerText = 'SWIPE UP';
-        // window.addEventListener('scroll', fullscreenHandler);
-      }
 
-
-      let orientation;
-      function orientationHandler(){
-        if(window.innerWidth <= window.innerHeight && orientation != PORTRAIT){
-          orientation = PORTRAIT;
-          resetFullscreen();
-          info.innerText = 'TURN ON LANDSCAPE';
-        } else if(window.innerWidth > window.innerHeight && orientation != LANDSCAPE){
-          orientation = LANDSCAPE;
-          initFullscreenActivator();
+        function preventScroll (ev){
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
         }
+
+        function fullscreenHandler(){
+          if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+            processFullscreen()
+          } else if(fullscreen) {
+            resetFullscreen();
+          }
+          screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+          viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+          aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
+        }
+
+        let fullscreen = false;
+
+
+        function resetFullscreen (){
+          alert('RESET FULLSCREEN');
+          document.body.style.height = '100%';
+          info.innerText = 'SWIPE UP';
+          // alert('RESET');
+          // window.removeEventListener('scroll', fullscreenHandler);
+          // fullscreen = false;
+          // document.body.style.height = `${window.innerHeight * 2}px`;
+          // window.scroll({top : 0});
+          // info.innerText = 'SWIPE UP';
+          // window.removeEventListener('touchmove', preventScroll);
+        }
+
+        function processFullscreen(){
+          // alert('PROCESS');
+          fullscreen = true;
+          document.body.style.height = '100%';
+          info.innerText = 'FULLSCREEN';
+          window.addEventListener('touchmove', preventScroll, {passive: false});
+        }
+
+
+        function initFullscreenActivator(){
+          // alert('PREPARE FULLSCREEN');
+          document.body.style.height = `${window.innerHeight * 2}px`;
+          window.scroll({top : 0});
+          info.innerText = 'SWIPE UP';
+          // window.addEventListener('scroll', fullscreenHandler);
+        }
+
+
+        let orientation;
+        function orientationHandler(){
+          if(window.innerWidth <= window.innerHeight && orientation != PORTRAIT){
+            orientation = PORTRAIT;
+            resetFullscreen();
+            info.innerText = 'TURN ON LANDSCAPE';
+          } else if(window.innerWidth > window.innerHeight && orientation != LANDSCAPE){
+            orientation = LANDSCAPE;
+            initFullscreenActivator();
+          }
+        }
+        orientationHandler();
+
+        //check device orientation
+        window.addEventListener('resize', orientationHandler);
+
+        // window.addEventListener("resize", function() {
+        //   setTimeout(() => {
+        //     if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+        //       processFullscreen()
+        //     } else if((window.innerWidth < window.innerHeight) && fullscreen){
+        //       resetFullscreen();
+        //     }
+        //   }, 0);
+        //
+        //   orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
+        // }, false);
+
+
+
       }
-      orientationHandler();
 
-      //check device orientation
-      window.addEventListener('resize', orientationHandler);
-
-      // window.addEventListener("resize", function() {
-      //   setTimeout(() => {
-      //     if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-      //       processFullscreen()
-      //     } else if((window.innerWidth < window.innerHeight) && fullscreen){
-      //       resetFullscreen();
-      //     }
-      //   }, 0);
-      //
-      //   orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-      // }, false);
-
-
-
-    }
-
+    });
+    
 
 </script>
 
