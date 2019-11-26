@@ -114,12 +114,9 @@
         // window.addEventListener('scroll', fullscreenHandler);
       }
 
-
-
-      let orientation = window.innerWidth > window.innerHeight ? LANDSCAPE : PORTRAIT;
-
-      //check device orientation
-      window.addEventListener('resize', () => {
+      
+      let orientation;
+      function orientationHandler(){
         if(window.innerWidth <= window.innerHeight && orientation == LANDSCAPE){
           orientation = PORTRAIT;
           resetFullscreen();
@@ -128,7 +125,11 @@
           orientation = LANDSCAPE;
           initFullscreenActivator();
         }
-      });
+      }
+      orientationHandler();
+
+      //check device orientation
+      window.addEventListener('resize', orientationHandler);
 
       // window.addEventListener("resize", function() {
       //   setTimeout(() => {
