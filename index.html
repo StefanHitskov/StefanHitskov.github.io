@@ -97,7 +97,7 @@
         function fullscreenHandler(){
           if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
             processFullscreen()
-          } else if(fullscreen) {
+          } else if(window.innerWidth <= window.innerHeight && fullscreen) {
             resetFullscreen('fullscreen handler');
             orientationHandler();
           }
