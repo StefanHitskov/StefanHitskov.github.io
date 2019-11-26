@@ -77,8 +77,8 @@
 
 
 
-        function resetFullscreen (){
-          alert('RESET FULLSCREEN');
+        function resetFullscreen (arg){
+          alert('RESET FULLSCREEN ' + arg);
           document.body.style.height = '100%';
           info.innerText = 'SWIPE UP';
           window.scroll({top : 0});
