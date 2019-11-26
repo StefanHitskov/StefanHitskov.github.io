@@ -65,38 +65,44 @@
 
       if(true){
 
-        document.body.style.height = `${window.innerHeight * 2}px`;
+        let orientation;
+        let fullscreen = false;
+        
 
         function preventScroll (ev){
           ev.preventDefault();
           ev.stopImmediatePropagation();
         }
 
-        function fullscreenHandler(){
-          if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-            processFullscreen()
-          } else if(fullscreen) {
-            resetFullscreen();
-          }
-          screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
-          viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
-          aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
-        }
-
-        let fullscreen = false;
+        
 
 
         function resetFullscreen (){
-          alert('RESET FULLSCREEN');
+          // alert('RESET FULLSCREEN');
           document.body.style.height = '100%';
           info.innerText = 'SWIPE UP';
-          // alert('RESET');
-          // window.removeEventListener('scroll', fullscreenHandler);
+          window.scroll({top : 0});
+          window.removeEventListener('scroll', fullscreenHandler);
           // fullscreen = false;
           // document.body.style.height = `${window.innerHeight * 2}px`;
           // window.scroll({top : 0});
           // info.innerText = 'SWIPE UP';
           // window.removeEventListener('touchmove', preventScroll);
+        }
+
+
+
+        
+        function fullscreenHandler(){
+          if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+            processFullscreen()
+          } else if(fullscreen) {
+            resetFullscreen();
+            orientationHandler();
+          }
+          screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
+          viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
+          aHeight.innerHTML = `available: w ${window.screen.availWidth } : h ${window.screen.availHeight }`;
         }
 
         function processFullscreen(){
@@ -113,11 +119,11 @@
           document.body.style.height = `${window.innerHeight * 2}px`;
           window.scroll({top : 0});
           info.innerText = 'SWIPE UP';
-          // window.addEventListener('scroll', fullscreenHandler);
+          window.addEventListener('scroll', fullscreenHandler);
         }
 
 
-        let orientation;
+        
         function orientationHandler(){
           if(window.innerWidth <= window.innerHeight && orientation != PORTRAIT){
             orientation = PORTRAIT;
@@ -132,18 +138,6 @@
 
         //check device orientation
         window.addEventListener('resize', orientationHandler);
-
-        // window.addEventListener("resize", function() {
-        //   setTimeout(() => {
-        //     if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-        //       processFullscreen()
-        //     } else if((window.innerWidth < window.innerHeight) && fullscreen){
-        //       resetFullscreen();
-        //     }
-        //   }, 0);
-        //
-        //   orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
-        // }, false);
 
 
 
