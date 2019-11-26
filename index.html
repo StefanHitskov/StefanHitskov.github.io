@@ -132,7 +132,12 @@
             info.innerText = 'TURN ON LANDSCAPE';
           } else if(window.innerWidth > window.innerHeight && orientation != LANDSCAPE){
             orientation = LANDSCAPE;
-            initFullscreenActivator();
+            //---------------------------
+            if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
+              processFullscreen()
+            } else {
+              initFullscreenActivator();
+            }
           }
         }
         orientationHandler();
