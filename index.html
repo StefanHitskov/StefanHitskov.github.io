@@ -67,14 +67,14 @@
 
         let orientation;
         let fullscreen = false;
-        
+
 
         function preventScroll (ev){
           ev.preventDefault();
           ev.stopImmediatePropagation();
         }
 
-        
+
 
 
         function resetFullscreen (){
@@ -83,6 +83,7 @@
           info.innerText = 'SWIPE UP';
           window.scroll({top : 0});
           window.removeEventListener('scroll', fullscreenHandler);
+          window.removeEventListener('touchmove', preventScroll);
           // fullscreen = false;
           // document.body.style.height = `${window.innerHeight * 2}px`;
           // window.scroll({top : 0});
@@ -92,7 +93,7 @@
 
 
 
-        
+
         function fullscreenHandler(){
           if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
             processFullscreen()
@@ -123,7 +124,7 @@
         }
 
 
-        
+
         function orientationHandler(){
           if(window.innerWidth <= window.innerHeight && orientation != PORTRAIT){
             orientation = PORTRAIT;
