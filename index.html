@@ -86,6 +86,8 @@
 
       function resetFullscreen (){
         alert('RESET FULLSCREEN');
+        document.body.style.height = '100%';
+        info.innerText = 'SWIPE UP';
         // alert('RESET');
         // window.removeEventListener('scroll', fullscreenHandler);
         // fullscreen = false;
@@ -105,7 +107,10 @@
 
 
       function initFullscreenActivator(){
-        alert('PREPARE FULLSCREEN');
+        // alert('PREPARE FULLSCREEN');
+        document.body.style.height = `${window.innerHeight * 2}px`;
+        window.scroll({top : 0});
+        info.innerText = 'SWIPE UP';
         // window.addEventListener('scroll', fullscreenHandler);
       }
 
@@ -118,6 +123,7 @@
         if(window.innerWidth <= window.innerHeight && orientation == LANDSCAPE){
           orientation = PORTRAIT;
           resetFullscreen();
+          info.innerText = 'TURN ON LANDSCAPE';
         } else if(window.innerWidth > window.innerHeight && orientation == PORTRAIT){
           orientation = LANDSCAPE;
           initFullscreenActivator();
