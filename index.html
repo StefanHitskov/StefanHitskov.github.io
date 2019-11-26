@@ -114,14 +114,14 @@
         // window.addEventListener('scroll', fullscreenHandler);
       }
 
-      
+
       let orientation;
       function orientationHandler(){
-        if(window.innerWidth <= window.innerHeight && orientation == LANDSCAPE){
+        if(window.innerWidth <= window.innerHeight && orientation != PORTRAIT){
           orientation = PORTRAIT;
           resetFullscreen();
           info.innerText = 'TURN ON LANDSCAPE';
-        } else if(window.innerWidth > window.innerHeight && orientation == PORTRAIT){
+        } else if(window.innerWidth > window.innerHeight && orientation != LANDSCAPE){
           orientation = LANDSCAPE;
           initFullscreenActivator();
         }
