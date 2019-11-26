@@ -47,6 +47,8 @@
     orientation.innerText = `orientation ${window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'}`;
 
     const userAgent = navigator.userAgent;
+    const PORTRAIT = 0;
+    const LANDSCAPE = 1;
 
     // ua.innerText = userAgent;
 
@@ -88,10 +90,18 @@
         window.addEventListener('touchmove', preventScroll, {passive: false});
       }
 
-      // let orientation = window.
+
+
+      let orientation = window.innerWidth > window.innerHeight ? LANDSCAPE : PORTRAIT;
 
       window.addEventListener('resize', () => {
-
+        if(window.innerWidth <= window.innerHeight && orientation == LANDSCAPE){
+          orientation = PORTRAIT;
+          alert('PORTRAIT');
+        } else if(window.innerWidth > window.innerHeight && orientation == PORTRAIT){
+          orientation = LANDSCAPE;
+          alert('LANDSCAPE');
+        }
       });
 
       // window.addEventListener("resize", function() {
