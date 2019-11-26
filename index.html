@@ -77,7 +77,7 @@
 
 
 
-        function resetFullscreen (arg){
+        function resetFullscreen (){
           // alert('RESET FULLSCREEN ' + arg);
           document.body.style.height = '100%';
           info.innerText = 'SWIPE UP';
@@ -100,6 +100,9 @@
           } else if(window.innerWidth <= window.innerHeight && fullscreen) {
             resetFullscreen('fullscreen handler');
             orientationHandler();
+          } else if(window.innerHeight != window.screen.width && fullscreen){
+            resetFullscreen();
+            initFullscreenActivator();
           }
           screen.innerHTML = `screen: w ${window.screen.width} : h ${window.screen.height}`;
           viewport.innerHTML = `viewport: w ${window.innerWidth} : h ${window.innerHeight}`;
@@ -132,12 +135,7 @@
             info.innerText = 'TURN ON LANDSCAPE';
           } else if(window.innerWidth > window.innerHeight && orientation != LANDSCAPE){
             orientation = LANDSCAPE;
-            //---------------------------
-            if(window.innerWidth > window.innerHeight && window.innerHeight == window.screen.width && !fullscreen){
-              processFullscreen()
-            } else {
-              initFullscreenActivator();
-            }
+            initFullscreenActivator();
           }
         }
         orientationHandler();
